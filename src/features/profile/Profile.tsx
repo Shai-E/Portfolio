@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Skill from "../skill/Skill";
 import "./Profile.css";
 
 export function Profile() {
@@ -13,6 +14,7 @@ export function Profile() {
           counselor, became a teaching assistant, then a teacher. I believe I am a great team worker, a quick learner
           and I strive for excellence in everything I do.
         </p>
+        <Skill />
       </div>
     </div>
   );

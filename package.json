@@ -21,6 +21,8 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.8.2",
     "react-scripts": "5.0.1",
+    "react-three-fiber": "^6.0.13",
+    "three": "^0.150.1",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
@@ -49,6 +51,7 @@
     ]
   },
   "devDependencies": {
-    "@types/aos": "^3.0.4"
+    "@types/aos": "^3.0.4",
+    "@types/three": "^0.149.0"
   }
 }
