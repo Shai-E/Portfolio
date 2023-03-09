@@ -4,7 +4,6 @@
 
 .my-timeline {
   background-color: transparent;
-
 }
 /* The actual timeline (the vertical ruler) */
 .timeline {
@@ -30,6 +29,7 @@
 /* Container around content */
 .timeline .container {
   padding: 10px 40px;
+  margin-top: 100px;
   position: relative;
   background-color: inherit;
   width: 50%;
@@ -39,7 +39,7 @@
   border: 1px solid white;
   box-shadow: 0px 0px 15px;
   border-radius: 15px;
-  padding: 20px
+  padding: 20px;
 }
 
 /* The circles on the timeline */
@@ -105,11 +105,11 @@
   position: relative;
   border-radius: 6px;
   background: #ffffffa6;
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 2.5px );
--webkit-backdrop-filter: blur( 2.5px );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(2.5px);
+  -webkit-backdrop-filter: blur(2.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 /* Media queries - Responsive timeline on screens less than 600px wide */

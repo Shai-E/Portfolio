@@ -23,12 +23,14 @@ export function TimelineStep({ position, description, children, dates, organizat
         data-aos={`fade-${index % 2 !== 0 ? "left" : "right"}`}
         data-aos-easing="spring"
         data-aos-duration="400"
-        className={`${ "content"}`}
+        className={`${"content"}`}
       >
+        {children && (
+          <div style={{ position: "absolute", left: index % 2 === 0 ? "165%" : "-65%", bottom: "-5%" }}>{children}</div>
+        )}
         <h2>{position}</h2>
         <h3>{organization}</h3>
         <h6>{dates}</h6>
-        {children}
         <p>{description}</p>
       </div>
     </div>
@@ -53,7 +55,7 @@ export function Timeline() {
       organization: "8200 Alumni Consultants",
       position: "Webmaster",
       dates: "2021",
-      // children:<Emulator/>,
+      // children: <Emulator />,
       description:
         "Building fully responsive landing pages. Have worked with several styling and animation  libraries, and have created some cool features such as this Wheel of Fortune tweakable  component: https://shai-e.github.io/wheel/ ",
     },
