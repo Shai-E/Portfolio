@@ -7,7 +7,7 @@
 }
 
 .my-profile .container {
-  width: 65%;
+  width: 95%;
   padding: 50px;
   margin: 100px 50px 0px 59px;
   border-radius: 25px;
@@ -19,4 +19,9 @@ backdrop-filter: blur( 2.5px );
 -webkit-backdrop-filter: blur( 2.5px );
 border-radius: 10px;
 border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.my-profile p {
+    max-width: 500px;
+    margin: 0 auto;
 }

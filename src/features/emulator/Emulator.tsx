@@ -26,7 +26,7 @@ export function Emulator() {
   return (
     <div className="my-emulator">
       <div className="my-emulator-container">
-        <video controls id="video" autoPlay muted src={videos[currentVideoIndex]} className="my-emulator-video" />
+        <video id="video" autoPlay muted src={videos[currentVideoIndex]} className="my-emulator-video" />
         <img src={emulatorFrame} className="my-emulator-frame" />
       </div>
     </div>
