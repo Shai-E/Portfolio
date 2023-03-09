@@ -12,11 +12,11 @@
 }
 
 .my-emulator-video {
-  width: 230px;
+  width: 223px;
   max-height: 530px;
   position:absolute;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-49.3%);
   top: 10px;
   border-radius: 20px;
   /* width: 200px; position: 'absolute'; left: 175px; transform: translateX('-50%')  */
