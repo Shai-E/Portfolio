@@ -30,12 +30,13 @@
 /* Container around content */
 .timeline .container {
   padding: 10px 40px;
-  margin-top: 100px;
+  margin: 100px 0;
   position: relative;
   background-color: inherit;
   width: 50%;
   z-index: 2;
 }
+
 .emphasize {
   color: white;
   border: 1px solid white;
@@ -103,7 +104,7 @@
 
 /* The actual content */
 .timeline .content {
-  padding: 20px 30px;
+  padding: 5px 30px;
   position: relative;
   border-radius: 6px;
   background: #ffffffa6;
