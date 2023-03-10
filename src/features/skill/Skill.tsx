@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { Canvas, useFrame } from "react-three-fiber";
 
 type ThreeSceneProps = {
@@ -11,7 +11,6 @@ function ThreeScene({ path }: ThreeSceneProps): JSX.Element {
 
   useFrame(() => {
     if (meshRef.current) {
-      //   meshRef.current.rotation.x += 0.01;
       meshRef.current.rotation.y -= 0.02;
     }
   });
