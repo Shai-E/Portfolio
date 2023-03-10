@@ -7,7 +7,7 @@ export function Profile() {
     position: "Full Stack & React Native Developer",
     name: "Shai Eliav",
     summary:
-      "A highly motivated developer. These past two years I’ve focused on front end with React and React Native. I study constantly on Udemy and love to experience and overcome challenges in code. I started my way as a youth counselor, became a teaching assistant, then a teacher. I believe I am a great team worker, a quick learner and I strive for excellence in everything I do.",
+      "The past three years I’ve focused on front end with React and React Native. I study constantly on Udemy and love to overcome challenges in code. I believe I am a great team worker, a quick learner and I strive for excellence in everything I do.",
   };
   const skillPics = [
     require("../../assets/js.png"),
