@@ -3,18 +3,35 @@ import Skill from "../skill/Skill";
 import "./Profile.css";
 
 export function Profile() {
+  const portfolioData = {
+    position: "Full Stack & React Native Developer",
+    name: "Shai Eliav",
+    summary:
+      "A highly motivated developer. These past two years I’ve focused on front end with React and React Native. I study constantly on Udemy and love to experience and overcome challenges in code. I started my way as a youth counselor, became a teaching assistant, then a teacher. I believe I am a great team worker, a quick learner and I strive for excellence in everything I do.",
+  };
+  const skillPics = [
+    require("../../assets/js.png"),
+    require("../../assets/html.png"),
+    require("../../assets/css.png"),
+    require("../../assets/node.png"),
+    require("../../assets/react.png"),
+    require("../../assets/redux.png"),
+    require("../../assets/angular.png"),
+    require("../../assets/docker.png"),
+    require("../../assets/ts.png"),
+  ];
   return (
     <div className="my-profile">
       <div className="container">
-        <h2>Full Stack & React Native Developer</h2>
-        <h1>Shai Eliav</h1>
-        <p>
-          A highly motivated developer. These past two years I’ve focused on front end with React and React Native. I
-          study constantly on Udemy and love to experience and overcome challenges in code. I started my way as a youth
-          counselor, became a teaching assistant, then a teacher. I believe I am a great team worker, a quick learner
-          and I strive for excellence in everything I do.
-        </p>
-        <Skill />
+        <h2>{portfolioData.position}</h2>
+        <h1>{portfolioData.name}</h1>
+        <p>{portfolioData.summary}</p>
+
+        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
+          {skillPics.map((skill, index) => (
+            <Skill key={index} path={skill} />
+          ))}
+        </div>
       </div>
     </div>
   );
