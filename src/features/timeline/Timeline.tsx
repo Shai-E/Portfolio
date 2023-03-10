@@ -18,11 +18,11 @@ export function TimelineStep({ position, description, children, dates, organizat
     <div
       // data-aos={`flip-${index % 2 === 0 ? "left" : "right"}`}
       className={`container ${index % 2 === 0 ? "left" : "right"} ${children ? "orange" : ""}`}
-    >
-      <div
-        data-aos={`fade-${index % 2 !== 0 ? "left" : "right"}`}
-        data-aos-easing="spring"
+        data-aos={`zoom-in-${index % 2 !== 0 ? "left" : "right"}`}
+        data-aos-easing="linear"
         data-aos-duration="400"
+      >
+      <div
         className={`${"content"}`}
       >
         {children && (
