@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { useEffect, useRef, useState } from "react";
-import { Canvas, useFrame } from "react-three-fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 
 type ThreeSceneProps = {
   path: any;

@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import Skill from "../skill/Skill";
+import Phone from '../3DModels/Phone'
 import "./Profile.css";
+
+import ThreeDModel from "../3DModel";
+
 
 export function Profile() {
   const portfolioData = {
@@ -29,8 +33,19 @@ export function Profile() {
 
         <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
           {skillPics.map((skill, index) => (
-            <Skill key={index} path={skill} />
+            <Skill key={index} path={skill}/>
           ))}
+
+        </div>
+        <div style={{
+        height: '350px',
+        width: '350px'
+      }}>
+
+      {/* <ThreeDModel>
+          <Phone />
+      </ThreeDModel> */}
+   
         </div>
       </div>
     </div>
