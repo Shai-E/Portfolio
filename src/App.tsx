@@ -3,19 +3,21 @@ import { Timeline } from "./features/timeline/Timeline";
 import { Profile } from "./features/profile/Profile";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Stage } from "@react-three/drei";
+import Phone from '../src/features/3DModels/Phone';
 import Hat from '../src/features/3DModels/Hat';
 
 function App() {
   return (
-    <div /* style={{ height: '1500px', width: '100%', backgroundColor: 'red' }} */ className="App">
-          {/* <Canvas>
-            <mesh>
+    <div className="App">
+      {/* <div style={{width: 1200, height: 600}}>
+
+          <Canvas>
       <Stage environment={'city'} intensity={0.6}>
-        <Hat />
+        <Phone />
         </Stage>
       <OrbitControls autoRotate={false} enableZoom={false} />
-      </mesh>
-    </Canvas> */}
+    </Canvas>
+      </div> */}
       <Profile />
       <Timeline />
     </div>

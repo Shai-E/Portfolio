@@ -11,7 +11,7 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export default function Model(props) {
-  const { nodes, materials } = useGLTF('/hat-transformed.glb')
+  const { nodes, materials } = useGLTF('/Portfolio/hat-transformed.glb')
   return (
     <group {...props} dispose={null}>
       <group position={[0, 0.19, -0.97]} rotation={[-1.16, 0, 0]} scale={0.04}>
@@ -22,4 +22,4 @@ export default function Model(props) {
   )
 }
 
-useGLTF.preload('/hat-transformed.glb')
+useGLTF.preload('/Portfolio/hat-transformed.glb')

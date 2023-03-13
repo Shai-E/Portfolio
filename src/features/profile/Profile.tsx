@@ -4,6 +4,8 @@ import Phone from '../3DModels/Phone'
 import "./Profile.css";
 
 import ThreeDModel from "../3DModel";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, Stage } from "@react-three/drei";
 
 
 export function Profile() {
@@ -30,7 +32,15 @@ export function Profile() {
         <h2>{portfolioData.position}</h2>
         <h1>{portfolioData.name}</h1>
         <p>{portfolioData.summary}</p>
+        <div style={{width: 1200, height: 600}}>
 
+<Canvas>
+<Stage environment={'city'} intensity={0.6}>
+<Phone />
+</Stage>
+<OrbitControls autoRotate={false} enableZoom={false} />
+</Canvas>
+</div>
         <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
           {skillPics.map((skill, index) => (
             <Skill key={index} path={skill}/>
