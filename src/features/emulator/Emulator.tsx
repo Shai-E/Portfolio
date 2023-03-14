@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./Emulator.css";
 import emulatorFrame from "../../assets/iphoneEmulator.png";
 
-export function Emulator() {
+export function Emulator({style}: any) {
   const videos = [
     require("../../assets/videos/1.mp4"),
     require("../../assets/videos/2.mp4"),
@@ -24,10 +24,10 @@ export function Emulator() {
     }
   }, [currentVideoIndex]);
   return (
-    <div className="my-emulator">
+    <div className="my-emulator" style={style}>
       <div className="my-emulator-container">
         <video id="video" autoPlay muted src={videos[currentVideoIndex]} className="my-emulator-video" />
-        <img src={emulatorFrame} className="my-emulator-frame" />
+        {/* <img src={emulatorFrame} className="my-emulator-frame" /> */}
       </div>
     </div>
   );

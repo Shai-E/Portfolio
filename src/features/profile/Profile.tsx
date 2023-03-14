@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Skill from "../skill/Skill";
-import Phone from '../3DModels/Phone'
+import Phone from '../3DModels/Workspace'
 import "./Profile.css";
 
 import ThreeDModel from "../3DModel";
@@ -26,17 +26,21 @@ export function Profile() {
     require("../../assets/docker.png"),
     require("../../assets/ts.png"),
   ];
+
+  const phoneRef = useRef(null)
+
+  
   return (
     <div className="my-profile">
       <div className="container">
         <h2>{portfolioData.position}</h2>
         <h1>{portfolioData.name}</h1>
         <p>{portfolioData.summary}</p>
-        <div style={{width: 1200, height: 600}}>
+        <div style={{width: 1200, height: 400}}>
 
 <Canvas>
 <Stage environment={'city'} intensity={0.6}>
-<Phone />
+<Phone ref={phoneRef}/>
 </Stage>
 <OrbitControls autoRotate={false} enableZoom={false} />
 </Canvas>
