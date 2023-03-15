@@ -92,9 +92,9 @@
   width: 0;
   z-index: 1;
   left: 30px;
-  border: medium solid #ffffffa6;
+  border: medium solid #ffffff;
   border-width: 10px 10px 10px 0;
-  border-color: transparent #ffffffa6 transparent transparent;
+  border-color: transparent #ffffff transparent transparent;
 }
 
 /* Fix the circle for containers on the right side */
@@ -107,7 +107,7 @@
   padding: 5px 30px;
   position: relative;
   border-radius: 6px;
-  background: #ffffffa6;
+  background: #ffffff;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(2.5px);
   -webkit-backdrop-filter: blur(2.5px);

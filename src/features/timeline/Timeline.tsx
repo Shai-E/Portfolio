@@ -28,14 +28,24 @@ export function TimelineStep({
 }: TimelineProps) {
   return (
     <div
-      className={`container ${index % 2 === 0 ? "left" : "right"} ${aside ? "orange" : ""}`}
+      className={`container ${index % 2 === 0 ? "left" : "right"} ${
+        aside ? "orange" : ""
+      }`}
       data-aos={`zoom-in-${index % 2 !== 0 ? "left" : "right"}`}
       data-aos-easing="linear"
       data-aos-duration="400"
     >
       <div className={`${"content"}`} style={{}}>
         {aside && (
-          <div style={{ position: "absolute", left: index % 2 === 0 ? "165%" : "-65%", bottom: "-5%" }}>{aside}</div>
+          <div
+            style={{
+              position: "absolute",
+              left: index % 2 === 0 ? "165%" : "-65%",
+              bottom: "-5%",
+            }}
+          >
+            {aside}
+          </div>
         )}
         <h2>{position}</h2>
         <h3>{organization}</h3>
@@ -131,9 +141,19 @@ export function Timeline() {
   return (
     <div className="my-timeline">
       <div className="timeline">
+        <Description
+          text={
+            "The past three years I’ve focused on front end with React and React Native. I study constantly on Udemy and love to overcome challenges in code. I believe I am a great team worker, a quick learner and I strive for excellence in everything I do."
+          }
+        />
         {experience.length > 0 && <Title text={"experience"} />}
         {experience.map((props, index) => (
-          <TimelineStep key={index} {...props} index={index} isLast={index === experience.length - 1} />
+          <TimelineStep
+            key={index}
+            {...props}
+            index={index}
+            isLast={index === experience.length - 1}
+          />
         ))}
         {otherOccupations.length > 0 && <Title text={"english teacher"} />}
         {otherOccupations.length > 0 && (
@@ -144,7 +164,12 @@ export function Timeline() {
           />
         )}
         {otherOccupations.map((props, index) => (
-          <TimelineStep key={index} {...props} index={index} isLast={index === otherOccupations.length - 1} />
+          <TimelineStep
+            key={index}
+            {...props}
+            index={index}
+            isLast={index === otherOccupations.length - 1}
+          />
         ))}
       </div>
     </div>

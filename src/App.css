@@ -1,8 +1,8 @@
 .App {
   text-align: center;
   background: rgb(0,0,0);
-  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(31,48,50,1) 39%, rgba(0,0,0,1) 49%);}
-
+  background: linear-gradient(90deg, rgba(0,0,0,1) 23%, rgba(31,48,50,1) 26%, rgba(0,0,0,1) 29%, rgba(31,48,50,1) 32%, rgba(0,0,0,1) 35%, rgba(31,48,50,1) 38%, rgba(0,0,0,1) 41%, rgba(31,48,50,1) 44%, rgba(0,0,0,1) 47%, rgba(76,123,129,1) 50%, rgba(0,0,0,1) 53%, rgba(31,48,50,1) 56%, rgba(0,0,0,1) 59%, rgba(31,48,50,1) 62%, rgba(0,0,0,1) 65%, rgba(31,48,50,1) 68%, rgba(0,0,0,1) 71%, rgba(31,48,50,1) 74%, rgba(0,0,0,1) 77%);
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
