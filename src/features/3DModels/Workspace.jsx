@@ -7,14 +7,76 @@ Source: https://sketchfab.com/3d-models/modern-gadgets-ab36d3ecad9d480c8d3232add
 Title: Modern Gadgets
 */
 
-import React, { useRef } from 'react'
-import { useGLTF } from '@react-three/drei'
+import React, { useEffect, useLayoutEffect, useRef } from 'react'
+import { useGLTF, useScroll } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber';
+import gsap from 'gsap'
 
 export default function Model(props) {
-  const { nodes, materials } = useGLTF('/Portfolio/workspace-transformed.glb')
+  const mainref = useRef(null)
+  const tl = useRef(null)
+  const { nodes, materials } = useGLTF('/Portfolio/workspace-transformed.glb');
+  useFrame(()=>{
+    // if(mainref.current) {
+    //   mainref.current.rotation.z = -20
+    // }
+    console.log(mainref.current.rotation.z);
+
+    if(window.scrollY < 400 && mainref.current.rotation.z < -0.15 ){
+      if( mainref.current.rotation.z >= -0.15){
+        mainref.current.rotation.z = -0.15
+        return;
+      }
+      mainref.current.rotation.z += window.scrollY / 400
+    }
+ 
+
+    // if(mainref.current.rotation.z < -18.5){
+    //   console.log(mainref.current);
+    //   mainref.current.rotation.z += 0.01
+    //   mainref.current.scale.z -= 0.001
+    //   mainref.current.scale.x -= 0.001
+    //   mainref.current.scale.y -= 0.001
+
+    // }
+  })
+
+  // useEffect(()=>{
+  //   if(mainref.current) {
+  //     mainref.current.rotation.z = -20
+  //   }
+  // },[mainref.current])
+
+  useLayoutEffect(()=>{
+    tl.current = gsap.timeline()
+    // tl.current.from(
+    //   mainref.current.rotation,{
+    //     duration: 0,
+    //     z: -18
+    //   }
+    // )
+
+    // mainref.current.rotation.z = -20.4
+    
+    //   tl.current.from(
+    //   mainref.current.rotation,{
+    //     duration: 20,
+    //     z: -18
+    //   }
+    // )
+
+     tl.current.to(
+       mainref.current.rotation,{
+         duration: 1.5,
+         z: -1.5
+       }
+     )
+   
+  },[])
+
   return (
     <group {...props} dispose={null}>
-      <group rotation={[-Math.PI / 2, 0, 0]}>
+      <group rotation={[-Math.PI / 2, 0, 0]} ref={mainref}>
         <mesh geometry={nodes.Object_2.geometry} material={nodes.Object_2.material} />
         <mesh geometry={nodes.Object_3.geometry} material={nodes.Object_3.material} />
         <mesh geometry={nodes.Object_4.geometry} material={nodes.Object_4.material} />

@@ -1,12 +1,10 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import Skill from "../skill/Skill";
-import Phone from '../3DModels/Workspace'
+import Phone from "../3DModels/Workspace";
 import "./Profile.css";
 
-import ThreeDModel from "../3DModel";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Stage } from "@react-three/drei";
-
 
 export function Profile() {
   const portfolioData = {
@@ -27,39 +25,34 @@ export function Profile() {
     require("../../assets/ts.png"),
   ];
 
-  const phoneRef = useRef(null)
-
-  
   return (
     <div className="my-profile">
       <div className="container">
-        <h2>{portfolioData.position}</h2>
+        {/* <h2>{portfolioData.position}</h2>
         <h1>{portfolioData.name}</h1>
-        <p>{portfolioData.summary}</p>
-        <div style={{width: 1200, height: 400}}>
-
-<Canvas>
-<Stage environment={'city'} intensity={0.6}>
-<Phone ref={phoneRef}/>
-</Stage>
-<OrbitControls autoRotate={false} enableZoom={false} />
-</Canvas>
-</div>
-        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
-          {skillPics.map((skill, index) => (
-            <Skill key={index} path={skill}/>
-          ))}
-
+        <p>{portfolioData.summary}</p> */}
+        <div style={{ width: "100vw", height: "100vh" }}>
+          <Canvas>
+            <Stage environment={"city"} intensity={1} adjustCamera={1}>
+              <Phone />
+            </Stage>
+            <OrbitControls
+              autoRotate={false}
+              enableZoom={false}
+              enableRotate={false}
+            />
+          </Canvas>
         </div>
-        <div style={{
-        height: '350px',
-        width: '350px'
-      }}>
-
-      {/* <ThreeDModel>
-          <Phone />
-      </ThreeDModel> */}
-   
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+          }}
+        >
+          {skillPics.map((skill, index) => (
+            <Skill key={index} path={skill} />
+          ))}
         </div>
       </div>
     </div>
