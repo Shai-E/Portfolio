@@ -35,7 +35,7 @@ export function TimelineStep({
       data-aos-easing="linear"
       data-aos-duration="400"
     >
-      <div className={`${"content"}`} style={{}}>
+      <div className={`${"content"}`}>
         {aside && (
           <div
             style={{
