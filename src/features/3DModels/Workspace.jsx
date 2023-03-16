@@ -20,7 +20,7 @@ export default function Model(props) {
     // if(mainref.current) {
     //   mainref.current.rotation.z = -20
     // }
-    console.log(mainref.current.rotation.z);
+    // console.log(mainref.current.rotation.z);
 
     if(window.scrollY < 400 && mainref.current.rotation.z < -0.15 ){
       if( mainref.current.rotation.z >= -0.15){
