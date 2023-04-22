@@ -1,18 +1,25 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Skill from "../skill/Skill";
-import Phone from "../3DModels/Workspace";
+import Phone from "../3DModels/Phone";
 import "./Profile.css";
 
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Stage } from "@react-three/drei";
+import { portfolioData } from "../../fixtures/portfolioData";
+import {
+  CodepenIcon,
+  GithubIcon,
+  InstagramIcon,
+  LinkedinIcon,
+  TwitterIcon,
+} from "../../assets/icons/SVGIcons";
+export function Profile({ setProfileRef }: any) {
+  const profileRef = useRef(null);
 
-export function Profile() {
-  const portfolioData = {
-    position: "Full Stack & React Native Developer",
-    name: "Shai Eliav",
-    summary:
-      "The past three years I’ve focused on front end with React and React Native. I study constantly on Udemy and love to overcome challenges in code. I believe I am a great team worker, a quick learner and I strive for excellence in everything I do.",
-  };
+  useEffect(() => {
+    profileRef.current && setProfileRef(profileRef.current);
+  }, [profileRef.current]);
+
   const skillPics = [
     require("../../assets/js.png"),
     require("../../assets/html.png"),
@@ -26,33 +33,66 @@ export function Profile() {
   ];
 
   return (
-    <div className="my-profile">
+    <div className="my-profile" ref={setProfileRef}>
       <div className="container">
-        {/* <h2>{portfolioData.position}</h2>
-        <h1>{portfolioData.name}</h1>
-        <p>{portfolioData.summary}</p> */}
-        <div style={{ width: "100vw", height: "100vh" }}>
-          <Canvas>
-            <Stage environment={"city"} intensity={1} adjustCamera={1}>
-              <Phone />
-            </Stage>
-            <OrbitControls
-              autoRotate={false}
-              enableZoom={false}
-              enableRotate={false}
-            />
-          </Canvas>
+        <div className="summary-container">
+          <div className="canvas-container">
+            <Canvas>
+              <Stage adjustCamera={0.7}>
+                <Phone />
+                <OrbitControls enableZoom={false} />
+              </Stage>
+            </Canvas>
+          </div>
+          <p className="summary noselect">
+            <h2
+              style={{
+                flexDirection: "row",
+                display: "flex",
+                alignItems: "baseline",
+                fontSize: "1.5rem",
+                gap: ".8rem",
+              }}
+            >
+              <span>Hi!</span>
+            </h2>
+            <p
+              style={{
+                flexDirection: "row",
+                display: "flex",
+                alignItems: "baseline",
+                fontSize: "1.5rem",
+                gap: ".8rem",
+              }}
+            >
+              <span>I'm</span>
+              <h1 className="name"> {portfolioData.name}</h1>
+            </p>
+            <p
+              style={{
+                flexDirection: "row",
+                display: "flex",
+                alignItems: "baseline",
+                fontSize: "1.5rem",
+                gap: ".8rem",
+              }}
+            >
+              <span>and I'm a</span>
+              <h2 className="title">{portfolioData.position1}</h2>
+              <span>&</span>
+              <h2 className="title">{portfolioData.position2}</h2>
+              <span>developer</span>
+            </p>
+            {/* {portfolioData.summary} */}
+          </p>
         </div>
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-          }}
-        >
-          {skillPics.map((skill, index) => (
-            <Skill key={index} path={skill} />
-          ))}
+        <div className="social">
+          <GithubIcon width={24} />
+          {/* <TwitterIcon width={24} /> */}
+          {/* <CodepenIcon width={24} /> */}
+          <LinkedinIcon width={24} />
+          <InstagramIcon width={24} />
+          <div className="last-icon" />
         </div>
       </div>
     </div>

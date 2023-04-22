@@ -48,7 +48,7 @@ function ThreeScene({ path }: ThreeSceneProps): JSX.Element {
 
 function Skill({ path }: ThreeSceneProps): JSX.Element {
   return (
-    <Canvas style={{ width: "6%", height: "15%" }}>
+    <Canvas style={{ width: "60px", height: "100px" }}>
       <ThreeScene path={path} />
     </Canvas>
   );

@@ -2,19 +2,39 @@
   position: sticky;
   z-index: 2;
   background: rgb(255, 255, 255);
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 1) 7.5%,
-    rgba(255, 255, 255, 1) 50%,
-    rgba(255, 255, 255, 1) 92.5%,
-    rgba(255, 255, 255, 0) 100%
-  );
+
   width: fit-content;
   margin: 2px auto;
   padding: 20px 100px;
-  border-radius: 5px;
+  border-radius: 100px;
   color: #000000;
   font-weight: 500;
-  max-width: 42vw;
+  max-width: calc(100vw);
+}
+
+
+.timeline-title {
+  position: sticky;
+        z-index: 2;
+        background-color: white;
+        width: fit-content;
+        margin: 2px auto;
+        padding: 10px 20px;
+        border-radius: 5px;
+        color: #05668d;
+        font-weight: bold;
+        text-transform: uppercase;
+}
+
+@media only screen and (max-width: 1170px) {
+  .description {
+
+    border-radius: 0 100px 100px 0;
+    margin-left: 20px;
+    max-width: calc(100vw- 20px);
+  }
+
+  .timeline-title {
+    transform: translateX(500px)
+  }
 }

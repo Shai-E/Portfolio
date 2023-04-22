@@ -1,10 +1,15 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import "./Timeline.css";
 import "./Description.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Emulator } from "../emulator/Emulator";
-
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
+import Skill from "../skill/Skill";
 interface TimelineProps {
   position?: string;
   aside?: any;
@@ -13,6 +18,8 @@ interface TimelineProps {
   organization?: string;
   dates?: string;
   index: number;
+  skills?: string[];
+  skillIcons?: any[];
   isLast?: boolean;
 }
 
@@ -24,17 +31,12 @@ export function TimelineStep({
   dates,
   organization,
   index,
+  skills,
+  skillIcons,
   isLast,
 }: TimelineProps) {
   return (
-    <div
-      className={`container ${index % 2 === 0 ? "left" : "right"} ${
-        aside ? "orange" : ""
-      }`}
-      data-aos={`zoom-in-${index % 2 !== 0 ? "left" : "right"}`}
-      data-aos-easing="linear"
-      data-aos-duration="400"
-    >
+    <VerticalTimelineElement iconStyle={{ backgroundColor: "#cce3de" }}>
       <div className={`${"content"}`}>
         {aside && (
           <div
@@ -52,8 +54,32 @@ export function TimelineStep({
         <h6>{dates}</h6>
         {children}
         <p style={{ textAlign: "left" }}>{description}</p>
+        {skills && (
+          <div style={{ textAlign: "left" }}>
+            <br />
+            <span>The skills I've aquired at this job:</span>
+            <ul style={{ textAlign: "left", fontSize: 14 }}>
+              {skills.map((skill, index) => (
+                <li key={index}>{skill}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {skillIcons && (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-evenly",
+            }}
+          >
+            {skillIcons.map((skill, index) => (
+              <Skill path={skill} key={index} />
+            ))}
+          </div>
+        )}
       </div>
-    </div>
+    </VerticalTimelineElement>
   );
 }
 
@@ -63,21 +89,7 @@ type TitleProps = {
 
 export const Title = ({ text }: TitleProps) => {
   return (
-    <div
-      data-aos="zoom-in-up"
-      style={{
-        position: "sticky",
-        zIndex: 2,
-        backgroundColor: "white",
-        width: "fit-content",
-        margin: "2px auto",
-        padding: "10px 20px",
-        borderRadius: "5px",
-        color: "#b10505a6",
-        fontWeight: "bold",
-        textTransform: "uppercase",
-      }}
-    >
+    <div data-aos="zoom-in-up" className="timeline-title">
       {text}
     </div>
   );
@@ -91,17 +103,24 @@ export const Description = ({ text }: TitleProps) => {
   );
 };
 
-export function Timeline() {
+export function Timeline({ setTimelineRef }: any) {
+  const timelineRef = useRef(null);
+
   useEffect(() => {
     AOS && AOS.init();
   }, [AOS]);
+
+  useEffect(() => {
+    timelineRef.current && setTimelineRef(timelineRef.current);
+  }, [timelineRef.current]);
 
   const experience = [
     {
       organization: "IDI Ventures",
       position: "React Native Developer – Mobile Team",
       dates: "2021 – TODAY",
-      aside: <Emulator />,
+      children: <Emulator />,
+      aside: null,
       description:
         "Developing a new trading platform. Have implemented all types of navigation with fully customized designs. Have dealt with optimizing performance in long real-time changing lists (due to socket connections that change the trading values constantly). Have created reusable components for quick full control over the app and custom hooks for reusable logic. Have implemented the dark mode, key based localization with i18n, and search logic. Have made the app RTL ready for both iOS and Android. Used Redux Toolkit for global state management. Used mostly Reanimated for handling animations.",
     },
@@ -110,7 +129,35 @@ export function Timeline() {
       position: "Webmaster",
       dates: "2021",
       // aside: <Emulator />,
-      description: "Building fully responsive landing pages.",
+      description:
+        "At the starting point of my web developer career I found this cool job that perfected the basics for me.",
+      skills: [
+        "making a website fully responsive for all screen sizes and mobile view",
+        "being true to the original design with a pixel perfect approach in mind",
+        "providing alternatives when the design is flawed or incompatible",
+        "using animation libraries",
+        "creating my own animations with JavaScript and CSS",
+        "using a canvas to create extra components and new features",
+      ],
+      skillIcons: [
+        require("../../assets/js.png"),
+        require("../../assets/html.png"),
+        require("../../assets/css.png"),
+      ],
+      links: [
+        {
+          about:
+            "Here's an example of a landing page design and the result. Notice it's just an example, so the form doesn't actually send your data anywhere.",
+          url: "https://gold-e623b.web.app/",
+          pic: require("../../assets/images/lp.jpg"),
+        },
+        {
+          about:
+            "Here you can check out this canvas wheel of furtune I've created as an extra feature",
+          url: "https://shai-e.github.io/wheel/",
+          pic: require("../../assets/images/wheel.png"),
+        },
+      ],
     },
   ];
 
@@ -139,8 +186,8 @@ export function Timeline() {
   ];
 
   return (
-    <div className="my-timeline">
-      <div className="timeline">
+    <div className="my-timeline" ref={timelineRef}>
+      <VerticalTimeline lineColor="#a8b2d1">
         <Description
           text={
             "The past three years I’ve focused on front end with React and React Native. I study constantly on Udemy and love to overcome challenges in code. I believe I am a great team worker, a quick learner and I strive for excellence in everything I do."
@@ -171,7 +218,7 @@ export function Timeline() {
             isLast={index === otherOccupations.length - 1}
           />
         ))}
-      </div>
+      </VerticalTimeline>
     </div>
   );
 }
