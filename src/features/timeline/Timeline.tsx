@@ -89,7 +89,7 @@ type TitleProps = {
 
 export const Title = ({ text }: TitleProps) => {
   return (
-    <div data-aos="zoom-in-up" className="timeline-title">
+    <div data-aos="zoom-in-up" className="timeline-title" id={text}>
       {text}
     </div>
   );

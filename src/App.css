@@ -10,9 +10,9 @@
 .sticky-title {
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
+  top: -1px;
   z-index: 200;
-  height: 5vh;
+  height: 8vh;
   background-color: #2b2d42;
   border-bottom: 1px solid #a8b2d1;
   font-size: 1.1rem;

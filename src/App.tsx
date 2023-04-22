@@ -30,7 +30,10 @@ function App() {
     <div className="App">
       <Profile setProfileRef={setProfileRef} />
       <div className="sticky-title">
-        <a className="navlink">ABOUT</a> | <a className="navlink">EXPERIENCE</a>{" "}
+        <a className="navlink">ABOUT</a> |{" "}
+        <a className="navlink" href="#experience">
+          EXPERIENCE
+        </a>{" "}
         | <a className="navlink">EDUCATION</a> |{" "}
         <a className="navlink">MILITARY SERVICE</a> |{" "}
         <a className="navlink">WHAT'S UP</a>
