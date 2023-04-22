@@ -4,6 +4,8 @@
 
 .my-timeline {
   background-color: transparent;
+  max-width: 80vw;
+  margin: auto
 }
 /* The actual timeline (the vertical ruler) */
 .timeline {
