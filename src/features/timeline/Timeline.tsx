@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, forwardRef } from "react";
 import "./Timeline.css";
 import "./Description.css";
 import AOS from "aos";
@@ -84,12 +84,13 @@ export function TimelineStep({
 }
 
 type TitleProps = {
+  ref?: any;
   text: string;
 };
 
-export const Title = ({ text }: TitleProps) => {
+export const Title = ({ text, ref }: TitleProps) => {
   return (
-    <div data-aos="zoom-in-up" className="timeline-title" id={text}>
+    <div data-aos="zoom-in-up" className="timeline-title" ref={ref} id={text}>
       {text}
     </div>
   );
@@ -103,8 +104,9 @@ export const Description = ({ text }: TitleProps) => {
   );
 };
 
-export function Timeline({ setTimelineRef }: any) {
+export function Timeline({ setTimelineRef, setExperienceRef }: any) {
   const timelineRef = useRef(null);
+  const experienceRef = useRef(null);
 
   useEffect(() => {
     AOS && AOS.init();
@@ -113,6 +115,10 @@ export function Timeline({ setTimelineRef }: any) {
   useEffect(() => {
     timelineRef.current && setTimelineRef(timelineRef.current);
   }, [timelineRef.current]);
+
+  useEffect(() => {
+    experienceRef.current && setExperienceRef(experienceRef.current);
+  }, [experienceRef.current]);
 
   const experience = [
     {
@@ -193,7 +199,9 @@ export function Timeline({ setTimelineRef }: any) {
             "The past three years I’ve focused on front end with React and React Native. I study constantly on Udemy and love to overcome challenges in code. I believe I am a great team worker, a quick learner and I strive for excellence in everything I do."
           }
         />
-        {experience.length > 0 && <Title text={"experience"} />}
+        {experience.length > 0 && (
+          <Title text={"experience"} ref={experienceRef} />
+        )}
         {experience.map((props, index) => (
           <TimelineStep
             key={index}

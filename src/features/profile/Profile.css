@@ -20,7 +20,7 @@
 }
 
 .my-profile .canvas-container {
-  width: 400px;
+  width: 500px;
   height: 97.5vh;
   position: absolute;
   left: 75%;
@@ -103,7 +103,7 @@
 
 .name {
   box-shadow: inset 0 0 0 0 #fbf8cc;
-  color: #fbf8cc;
+  color: #f6ce1d;
   margin: 0 -.25rem;
   padding: 0 .25rem;
   transition: color .3s ease-in-out, box-shadow .3s ease-in-out;

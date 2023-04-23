@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background: #2b2d42;
+  background: #242f51;
 }
 .App-logo {
   height: 40vmin;
@@ -12,15 +12,15 @@
   position: sticky;
   top: -1px;
   z-index: 200;
-  height: 8vh;
-  background-color: #2b2d42;
+  min-height: 8vh;
+  background-color: #242f51;
   border-bottom: 1px solid #a8b2d1;
   font-size: 1.1rem;
   text-align: left;
   align-items: center;
   display: flex;
   padding-left: 15vw;
-  /* font-weight: bold; */
+  flex-wrap: wrap;
   color: white
 }
 
@@ -31,7 +31,7 @@
 }
 
 .noselect {
-  pointer-events: none;
+  /* pointer-events:visible; */
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
      -khtml-user-select: none; /* Konqueror HTML */

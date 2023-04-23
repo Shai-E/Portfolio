@@ -45,7 +45,7 @@ export function Profile({ setProfileRef }: any) {
             </Canvas>
           </div>
           <p className="summary noselect">
-            <h2
+            <span
               style={{
                 flexDirection: "row",
                 display: "flex",
@@ -55,7 +55,7 @@ export function Profile({ setProfileRef }: any) {
               }}
             >
               <span>Hi!</span>
-            </h2>
+            </span>
             <p
               style={{
                 flexDirection: "row",
@@ -72,6 +72,7 @@ export function Profile({ setProfileRef }: any) {
               style={{
                 flexDirection: "row",
                 display: "flex",
+                flexWrap: "wrap",
                 alignItems: "baseline",
                 fontSize: "1.5rem",
                 gap: ".8rem",
