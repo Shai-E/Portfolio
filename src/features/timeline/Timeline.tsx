@@ -10,6 +10,8 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import Skill from "../skill/Skill";
+import OtherExperience from "./OtherExperience";
+
 interface TimelineProps {
   position?: string;
   aside?: any;
@@ -84,13 +86,12 @@ export function TimelineStep({
 }
 
 type TitleProps = {
-  ref?: any;
   text: string;
 };
 
-export const Title = ({ text, ref }: TitleProps) => {
+export const Title = ({ text }: TitleProps) => {
   return (
-    <div data-aos="zoom-in-up" className="timeline-title" ref={ref} id={text}>
+    <div data-aos="zoom-in-up" className="timeline-title">
       {text}
     </div>
   );
@@ -104,9 +105,8 @@ export const Description = ({ text }: TitleProps) => {
   );
 };
 
-export function Timeline({ setTimelineRef, setExperienceRef }: any) {
+export function Timeline({ setTimelineRef }: any) {
   const timelineRef = useRef(null);
-  const experienceRef = useRef(null);
 
   useEffect(() => {
     AOS && AOS.init();
@@ -115,10 +115,6 @@ export function Timeline({ setTimelineRef, setExperienceRef }: any) {
   useEffect(() => {
     timelineRef.current && setTimelineRef(timelineRef.current);
   }, [timelineRef.current]);
-
-  useEffect(() => {
-    experienceRef.current && setExperienceRef(experienceRef.current);
-  }, [experienceRef.current]);
 
   const experience = [
     {
@@ -199,33 +195,37 @@ export function Timeline({ setTimelineRef, setExperienceRef }: any) {
             "The past three years I’ve focused on front end with React and React Native. I study constantly on Udemy and love to overcome challenges in code. I believe I am a great team worker, a quick learner and I strive for excellence in everything I do."
           }
         />
-        {experience.length > 0 && (
-          <Title text={"experience"} ref={experienceRef} />
-        )}
-        {experience.map((props, index) => (
-          <TimelineStep
-            key={index}
-            {...props}
-            index={index}
-            isLast={index === experience.length - 1}
-          />
-        ))}
-        {otherOccupations.length > 0 && <Title text={"english teacher"} />}
-        {otherOccupations.length > 0 && (
-          <Description
-            text={
-              "Worked with at-risk students to build up their confidence and help them in the process of English acquisition for their matriculation (Bagrut) exam."
-            }
-          />
-        )}
-        {otherOccupations.map((props, index) => (
-          <TimelineStep
-            key={index}
-            {...props}
-            index={index}
-            isLast={index === otherOccupations.length - 1}
-          />
-        ))}
+        <div id="experience">
+          {experience.length > 0 && <Title text={"experience"} />}
+          {experience.map((props, index) => (
+            <TimelineStep
+              key={index}
+              {...props}
+              index={index}
+              isLast={index === experience.length - 1}
+            />
+          ))}
+        </div>
+        <div id="other" style={{ position: "relative" }}>
+          <OtherExperience aos="zoom-out-up" />
+          {otherOccupations.length > 0 && <Title text={"english teacher"} />}
+          {otherOccupations.length > 0 && (
+            <Description
+              text={
+                "Worked with at-risk students to build up their confidence and help them in the process of English acquisition for their matriculation (Bagrut) exam."
+              }
+            />
+          )}
+          {otherOccupations.map((props, index) => (
+            <TimelineStep
+              key={index}
+              {...props}
+              index={index}
+              isLast={index === otherOccupations.length - 1}
+            />
+          ))}
+        </div>
+        <div id="education"></div>
       </VerticalTimeline>
     </div>
   );

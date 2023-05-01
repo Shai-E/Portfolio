@@ -12,7 +12,7 @@
   position: sticky;
   top: -1px;
   z-index: 200;
-  min-height: 8vh;
+  min-height: 2.5rem;
   background-color: #242f51;
   border-bottom: 1px solid #a8b2d1;
   font-size: 1.1rem;
@@ -21,13 +21,13 @@
   display: flex;
   padding-left: 15vw;
   flex-wrap: wrap;
-  color: white
+  color: white;
+  gap: 15px;
 }
 
-.navlink {
-  padding-right: 20px;
-  padding-left: 20px;
-  cursor: pointer;
+.sticky-title > * {
+  font-size: 1.1rem;
+
 }
 
 .noselect {

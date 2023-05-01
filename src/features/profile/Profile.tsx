@@ -13,6 +13,7 @@ import {
   LinkedinIcon,
   TwitterIcon,
 } from "../../assets/icons/SVGIcons";
+import SemanticButton from "../reusable/SemanticButton";
 export function Profile({ setProfileRef }: any) {
   const profileRef = useRef(null);
 
@@ -33,18 +34,18 @@ export function Profile({ setProfileRef }: any) {
   ];
 
   return (
-    <div className="my-profile" ref={setProfileRef}>
+    <div className="my-profile" ref={setProfileRef} id="about">
       <div className="container">
         <div className="summary-container">
           <div className="canvas-container">
             <Canvas>
               <Stage adjustCamera={0.7}>
                 <Phone />
-                <OrbitControls enableZoom={false} />
+                <OrbitControls enableZoom={false} autoRotate={true} />
               </Stage>
             </Canvas>
           </div>
-          <p className="summary noselect">
+          <div className="summary noselect">
             <span
               style={{
                 flexDirection: "row",
@@ -56,7 +57,7 @@ export function Profile({ setProfileRef }: any) {
             >
               <span>Hi!</span>
             </span>
-            <p
+            <div
               style={{
                 flexDirection: "row",
                 display: "flex",
@@ -67,8 +68,8 @@ export function Profile({ setProfileRef }: any) {
             >
               <span>I'm</span>
               <h1 className="name"> {portfolioData.name}</h1>
-            </p>
-            <p
+            </div>
+            <div
               style={{
                 flexDirection: "row",
                 display: "flex",
@@ -83,16 +84,26 @@ export function Profile({ setProfileRef }: any) {
               <span>&</span>
               <h2 className="title">{portfolioData.position2}</h2>
               <span>developer</span>
-            </p>
+            </div>
             {/* {portfolioData.summary} */}
-          </p>
+          </div>
         </div>
         <div className="social">
-          <GithubIcon width={24} />
+          <SemanticButton
+            onClick={() => {
+              window.open("https://github.com/Shai-E");
+            }}
+          >
+            <GithubIcon width={24} />
+          </SemanticButton>
           {/* <TwitterIcon width={24} /> */}
           {/* <CodepenIcon width={24} /> */}
-          <LinkedinIcon width={24} />
-          <InstagramIcon width={24} />
+          <SemanticButton>
+            <LinkedinIcon width={24} />
+          </SemanticButton>
+          <SemanticButton>
+            <InstagramIcon width={24} />
+          </SemanticButton>
           <div className="last-icon" />
         </div>
       </div>

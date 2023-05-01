@@ -29,13 +29,9 @@
 
 .my-profile .container {
   width: 80vw;
-  height: 92.5vh;
+  height: calc(100vh - 2.5rem + 1px);
   margin: auto 0;
   color: white;
-}
-
-.my-profile p {
-    /* max-width: calc(80vw - 400px); */
 }
 
 .glass {
@@ -97,7 +93,7 @@
   transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
 }
 .title:hover {
-  box-shadow: inset 300px 0 0 0 #8eecf5;
+  box-shadow: inset 30rem 0 0 0 #8eecf5;
   color: #303a51;
 }
 
@@ -109,20 +105,31 @@
   transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
 }
 .name:hover {
-  box-shadow: inset 300px 0 0 0 #fbf8cc;
+  box-shadow: inset 30rem 0 0 0 #fbf8cc;
   color: #303a51;
 }
 
-a {
+.navLink {
+  padding-right: 20px;
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+.navLink {
   box-shadow: inset 0 0 0 0 #cce3de;
   color: white;
   margin: 0 -.25rem;
   padding: 0 .25rem;
   transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
 }
-a:hover {
-  box-shadow: inset 300px 0 0 0 #cce3de;
-  color: #303a51;
+.navLinkActive {
+box-shadow: inset 30rem 0 0 0 #cce3de;
+color: #303a51;
+}
+
+  .navLink:hover{
+  box-shadow: inset 30rem 0 0 0 #cce3de65;
+  color: #cce3de;
 }
 
 @keyframes pulse {
