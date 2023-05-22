@@ -3,7 +3,7 @@
 .ox-container {
     --custom-margin: 50;
     width: calc(100% - (var(--custom-margin)*2px));
-    background-color: #242f51;
+    background-color: #10182f;
 
     margin: calc(var(--custom-margin)*1px);
     display: flex;
@@ -76,7 +76,6 @@ flex-direction: column;
 .first-col-tab:hover {
     background-color: #242f51;
     color:white;
-    border-top-right-radius: 250px;
     border-bottom: 1px solid #a8b2d1;
     cursor: pointer;
     /* justify-content: center; */
