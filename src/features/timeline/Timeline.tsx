@@ -169,21 +169,24 @@ export function Timeline({ setTimelineRef }: any) {
       position: "English teacher",
       dates: "2018 – 2020",
       // aside: <Emulator />,
-      description: "",
+      description:
+        "Worked with at-risk students to build up their confidence and help them in the process of English acquisition for their matriculation (Bagrut) exam.",
     },
     {
       organization: "Sharet Junior High",
       position: "Full time internship",
       dates: "2017 – 2018",
       // aside: <Emulator />,
-      description: "",
+      description:
+        "Worked with at-risk students to build up their confidence and help them in the process of English acquisition for their matriculation (Bagrut) exam.",
     },
     {
       organization: "Ort Guttman High School",
       position: "Teaching assistant",
       dates: "2013 – 2014",
       // aside: <Emulator />,
-      description: "",
+      description:
+        "Worked with at-risk students to build up their confidence and help them in the process of English acquisition for their matriculation (Bagrut) exam.",
     },
   ];
 
@@ -206,24 +209,12 @@ export function Timeline({ setTimelineRef }: any) {
             />
           ))}
         </div>
-        <div id="other" style={{ position: "relative" }}>
-          <OtherExperience aos="zoom-out-up" />
+        <div id="other" style={{ position: "relative", marginTop: 50 }}>
           {otherOccupations.length > 0 && <Title text={"english teacher"} />}
-          {otherOccupations.length > 0 && (
-            <Description
-              text={
-                "Worked with at-risk students to build up their confidence and help them in the process of English acquisition for their matriculation (Bagrut) exam."
-              }
-            />
-          )}
-          {otherOccupations.map((props, index) => (
-            <TimelineStep
-              key={index}
-              {...props}
-              index={index}
-              isLast={index === otherOccupations.length - 1}
-            />
-          ))}
+          <OtherExperience
+            aos="zoom-out-up"
+            otherOccupations={otherOccupations}
+          />
         </div>
         <div id="education"></div>
       </VerticalTimeline>

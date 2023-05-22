@@ -2,9 +2,11 @@ import React, { MouseEventHandler, PropsWithChildren } from "react";
 const SemanticButton = ({
   children,
   onClick,
+  className,
 }: {
   children: any;
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  className?: string;
 }) => {
   return (
     <button
@@ -18,6 +20,7 @@ const SemanticButton = ({
         cursor: "pointer",
       }}
       onClick={onClick}
+      className={className}
     >
       {children}
     </button>
