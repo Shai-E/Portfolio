@@ -98,10 +98,18 @@ export function Profile({ setProfileRef }: any) {
           </SemanticButton>
           {/* <TwitterIcon width={24} /> */}
           {/* <CodepenIcon width={24} /> */}
-          <SemanticButton>
+          <SemanticButton
+            onClick={() => {
+              window.open("https://www.linkedin.com/in/shai-eliav");
+            }}
+          >
             <LinkedinIcon width={24} />
           </SemanticButton>
-          <SemanticButton>
+          <SemanticButton
+            onClick={() => {
+              window.open("https://www.instagram.com/shai_key");
+            }}
+          >
             <InstagramIcon width={24} />
           </SemanticButton>
           <div className="last-icon" />
