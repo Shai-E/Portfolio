@@ -38,12 +38,21 @@ const OtherExperience = ({
         <div className="basic-oo-info">
           <span>
             {
-              otherOccupations[secondaryCOIDX || currentOccupationIDX]
-                .organization
+              otherOccupations[
+                secondaryCOIDX === 0
+                  ? secondaryCOIDX
+                  : secondaryCOIDX || currentOccupationIDX
+              ].organization
             }
           </span>
           <span>
-            {otherOccupations[secondaryCOIDX || currentOccupationIDX].dates}
+            {
+              otherOccupations[
+                secondaryCOIDX === 0
+                  ? secondaryCOIDX
+                  : secondaryCOIDX || currentOccupationIDX
+              ].dates
+            }
           </span>
         </div>
       </div>
@@ -51,8 +60,11 @@ const OtherExperience = ({
         <div className="ox-top">
           <span>
             {
-              otherOccupations[secondaryCOIDX || currentOccupationIDX]
-                .description
+              otherOccupations[
+                secondaryCOIDX === 0
+                  ? secondaryCOIDX
+                  : secondaryCOIDX || currentOccupationIDX
+              ].description
             }
           </span>
         </div>
