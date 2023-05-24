@@ -33,7 +33,6 @@ export function Profile({ setProfileRef, isAbout, setIsAbout }: any) {
     require("../../assets/docker.png"),
     require("../../assets/ts.png"),
   ];
-  console.log(isAbout);
 
   return (
     <div className="my-profile" ref={setProfileRef} id="hero">

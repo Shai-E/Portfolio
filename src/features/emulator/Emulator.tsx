@@ -12,8 +12,6 @@ export function Emulator({ style }: any) {
   ];
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const handleVideoEnd = () => {
-    console.log("hi");
-
     setCurrentVideoIndex((currentVideoIndex + 1) % videos.length);
   };
   useEffect(() => {

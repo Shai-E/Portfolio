@@ -11,25 +11,25 @@ function App() {
   const [profileRef, setProfileRef] = useState<{ current: any } | null>(null);
   const [isAbout, setIsAbout] = useState(false);
 
-  useEffect(() => {
-    if (timelineRef && profileRef) {
-      // window.scrollTo(0, window.innerHeight);
+  // useEffect(() => {
+  //   if (timelineRef && profileRef) {
+  //     // window.scrollTo(0, window.innerHeight);
 
-      const listener = (ev: any) => {
-        if (ev.deltaY > 0 && window.scrollY < window.innerHeight) {
-          // Scrolling Down with mouse
-          timelineRef.current?.scrollIntoView();
-        } else if (ev.deltaY < 0 && window.scrollY < window.innerHeight) {
-          // Scrolling Up with mouse
-          profileRef.current?.scrollIntoView();
-          console.log("Scroll Up");
-        }
-      };
+  //     const listener = (ev: any) => {
+  //       if (ev.deltaY > 0 && window.scrollY < window.innerHeight) {
+  //         // Scrolling Down with mouse
+  //         timelineRef.current?.scrollIntoView();
+  //       } else if (ev.deltaY < 0 && window.scrollY < window.innerHeight) {
+  //         // Scrolling Up with mouse
+  //         profileRef.current?.scrollIntoView();
+  //         console.log("Scroll Up");
+  //       }
+  //     };
 
-      document.addEventListener("wheel", listener);
-      return () => document.removeEventListener("wheel", listener);
-    }
-  }, [timelineRef, profileRef]);
+  //     document.addEventListener("wheel", listener);
+  //     return () => document.removeEventListener("wheel", listener);
+  //   }
+  // }, [timelineRef, profileRef]);
   return (
     <div className="App">
       <Profile

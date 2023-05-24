@@ -115,6 +115,7 @@
   margin: 0 -.25rem;
   padding: 0 .25rem;
   transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+  cursor: pointer;
 }
 .name:hover {
   box-shadow: inset 30rem 0 0 0 #fbf8cc;
