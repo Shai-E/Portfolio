@@ -1,0 +1,16 @@
+.about {
+    width: calc(85vw - clamp(300px, 30vw, 700px))
+}
+
+.me {
+    height: clamp(300px, 30vw, 500px)
+}
+
+.about-text {
+    font-size: clamp(1rem, calc(4vw - 30px), 1.8rem);
+}
+
+.bigger-text {
+    font-size: clamp(1.5rem, calc(4vw - 30px), 2.2rem);
+
+}

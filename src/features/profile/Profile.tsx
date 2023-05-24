@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Skill from "../skill/Skill";
 import Phone from "../3DModels/Phone";
 import "./Profile.css";
@@ -14,7 +14,8 @@ import {
   TwitterIcon,
 } from "../../assets/icons/SVGIcons";
 import SemanticButton from "../reusable/SemanticButton";
-export function Profile({ setProfileRef }: any) {
+import { About } from "../About/About";
+export function Profile({ setProfileRef, isAbout, setIsAbout }: any) {
   const profileRef = useRef(null);
 
   useEffect(() => {
@@ -32,9 +33,10 @@ export function Profile({ setProfileRef }: any) {
     require("../../assets/docker.png"),
     require("../../assets/ts.png"),
   ];
+  console.log(isAbout);
 
   return (
-    <div className="my-profile" ref={setProfileRef} id="about">
+    <div className="my-profile" ref={setProfileRef} id="hero">
       <div className="container">
         <div className="summary-container">
           <div className="canvas-container">
@@ -45,48 +47,41 @@ export function Profile({ setProfileRef }: any) {
               </Stage>
             </Canvas>
           </div>
-          <div className="summary noselect">
-            <span
-              style={{
-                flexDirection: "row",
-                display: "flex",
-                alignItems: "baseline",
-                fontSize: "1.5rem",
-                gap: ".8rem",
-              }}
-            >
-              <span>Hi!</span>
-            </span>
-            <div
-              style={{
-                flexDirection: "row",
-                display: "flex",
-                alignItems: "baseline",
-                fontSize: "1.5rem",
-                gap: ".8rem",
-              }}
-            >
-              <span>I'm</span>
-              <h1 className="name"> {portfolioData.name}</h1>
+          {isAbout ? (
+            <About />
+          ) : (
+            <div className="summary noselect">
+              <span
+                className={"summary-line"}
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                <span>Hi!</span>
+              </span>
+              <div
+                className={"summary-line"}
+                data-aos="fade-up"
+                data-aos-delay="400"
+              >
+                <span>I'm</span>
+                <h1 className="name" onClick={() => setIsAbout(true)}>
+                  {" "}
+                  {portfolioData.name}
+                </h1>
+              </div>
+              <div
+                className={"summary-line wrap"}
+                data-aos="fade-up"
+                data-aos-delay="600"
+              >
+                <span>and I'm a</span>
+                <h2 className="title">{portfolioData.position1}</h2>
+                <span>&</span>
+                <h2 className="title">{portfolioData.position2}</h2>
+                <span>developer</span>
+              </div>
             </div>
-            <div
-              style={{
-                flexDirection: "row",
-                display: "flex",
-                flexWrap: "wrap",
-                alignItems: "baseline",
-                fontSize: "1.5rem",
-                gap: ".8rem",
-              }}
-            >
-              <span>and I'm a</span>
-              <h2 className="title">{portfolioData.position1}</h2>
-              <span>&</span>
-              <h2 className="title">{portfolioData.position2}</h2>
-              <span>developer</span>
-            </div>
-            {/* {portfolioData.summary} */}
-          </div>
+          )}
         </div>
         <div className="social">
           <SemanticButton

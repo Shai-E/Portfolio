@@ -193,11 +193,6 @@ export function Timeline({ setTimelineRef }: any) {
   return (
     <div className="my-timeline" ref={timelineRef}>
       <VerticalTimeline lineColor="#a8b2d1">
-        <Description
-          text={
-            "The past three years I’ve focused on front end with React and React Native. I study constantly on Udemy and love to overcome challenges in code. I believe I am a great team worker, a quick learner and I strive for excellence in everything I do."
-          }
-        />
         <div id="experience">
           {experience.length > 0 && <Title text={"experience"} />}
           {experience.map((props, index) => (

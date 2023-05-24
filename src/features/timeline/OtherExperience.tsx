@@ -22,6 +22,7 @@ const OtherExperience = ({
       <div className="ox-left">
         {otherOccupations.map((occupation, index) => (
           <div
+            key={index}
             tabIndex={0}
             className={
               currentOccupationIDX === index

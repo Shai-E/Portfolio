@@ -9,6 +9,7 @@ import SemanticNavButton from "./features/reusable/SemanticNavButton";
 function App() {
   const [timelineRef, setTimelineRef] = useState<{ current: any } | null>(null);
   const [profileRef, setProfileRef] = useState<{ current: any } | null>(null);
+  const [isAbout, setIsAbout] = useState(false);
 
   useEffect(() => {
     if (timelineRef && profileRef) {
@@ -31,9 +32,18 @@ function App() {
   }, [timelineRef, profileRef]);
   return (
     <div className="App">
-      <Profile setProfileRef={setProfileRef} />
+      <Profile
+        setProfileRef={setProfileRef}
+        isAbout={isAbout}
+        setIsAbout={setIsAbout}
+      />
       <div className="sticky-title">
-        <SemanticNavButton route="about" title="ABOUT" />|
+        <SemanticNavButton
+          route="hero"
+          title="ABOUT"
+          onClick={() => setIsAbout(false)}
+        />
+        |
         <Link
           to="experience"
           className="navLink"

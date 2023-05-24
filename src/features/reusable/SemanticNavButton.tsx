@@ -7,7 +7,7 @@ const SemanticNavButton = ({
 }: {
   route: string;
   title: string;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
+  onClick?: any;
 }) => {
   return (
     <button
@@ -20,7 +20,6 @@ const SemanticNavButton = ({
         display: "flex",
         cursor: "pointer",
       }}
-      onClick={onClick}
     >
       <Link
         to={route}
@@ -30,6 +29,7 @@ const SemanticNavButton = ({
         smooth={true}
         offset={0}
         duration={500}
+        onClick={onClick}
       >
         {title}
       </Link>
