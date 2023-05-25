@@ -4,10 +4,14 @@ const SemanticNavButton = ({
   route,
   title,
   onClick,
+  offset,
+  duration,
 }: {
   route: string;
   title: string;
   onClick?: any;
+  offset?: number;
+  duration?: number;
 }) => {
   return (
     <button
@@ -27,8 +31,8 @@ const SemanticNavButton = ({
         activeClass="navLinkActive"
         spy={true}
         smooth={true}
-        offset={0}
-        duration={500}
+        offset={offset || 0}
+        duration={duration || 500}
         onClick={onClick}
       >
         {title}

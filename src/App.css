@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   background: #242f51;
+  position: relative;
 }
 .App-logo {
   height: 40vmin;
@@ -39,6 +40,15 @@
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
+}
+
+.contact-container {
+  width: clamp(50vw,3vw,100vw);
+  height:clamp(50vw,3vw,100vw);
+border: white solid 3px;
+  border-radius: 50%;
+  /* background-color: red; */
+  margin: auto;
 }
 
 @keyframes vibrate {

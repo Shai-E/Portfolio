@@ -15,8 +15,15 @@ import {
 } from "../../assets/icons/SVGIcons";
 import SemanticButton from "../reusable/SemanticButton";
 import { About } from "../About/About";
-export function Profile({ setProfileRef, isAbout, setIsAbout }: any) {
+import Social from "../Social/Social";
+export function Profile({
+  setProfileRef,
+  isAbout,
+  setIsAbout,
+  toggleSocial,
+}: any) {
   const profileRef = useRef(null);
+  const socialRef = useRef(null);
 
   useEffect(() => {
     profileRef.current && setProfileRef(profileRef.current);
@@ -33,6 +40,14 @@ export function Profile({ setProfileRef, isAbout, setIsAbout }: any) {
     require("../../assets/docker.png"),
     require("../../assets/ts.png"),
   ];
+
+  console.log(toggleSocial);
+
+  const socialProps = {
+    customStyle: "social" + (toggleSocial ? " hide" : ""),
+    aos: "fade-down",
+    toggleSocial,
+  };
 
   return (
     <div className="my-profile" ref={setProfileRef} id="hero">
@@ -82,32 +97,7 @@ export function Profile({ setProfileRef, isAbout, setIsAbout }: any) {
             </div>
           )}
         </div>
-        <div className="social">
-          <SemanticButton
-            onClick={() => {
-              window.open("https://github.com/Shai-E");
-            }}
-          >
-            <GithubIcon width={24} />
-          </SemanticButton>
-          {/* <TwitterIcon width={24} /> */}
-          {/* <CodepenIcon width={24} /> */}
-          <SemanticButton
-            onClick={() => {
-              window.open("https://www.linkedin.com/in/shai-eliav");
-            }}
-          >
-            <LinkedinIcon width={24} />
-          </SemanticButton>
-          <SemanticButton
-            onClick={() => {
-              window.open("https://www.instagram.com/shai_key");
-            }}
-          >
-            <InstagramIcon width={24} />
-          </SemanticButton>
-          <div className="last-icon" />
-        </div>
+        {<Social {...socialProps} ref={socialRef} />}
       </div>
     </div>
   );

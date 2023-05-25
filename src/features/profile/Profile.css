@@ -5,6 +5,22 @@
   background-color: transparent;
 }
 
+.hide {
+  animation: moveleft .5s ease-in-out forwards;
+}
+
+@keyframes moveleft {
+  0% {
+    opacity: 1;
+    margin-left: 0;
+  }
+
+  100% {
+    opacity: 0;
+    margin-left: 37vw;
+  }
+}
+
 .my-profile .summary-container {
   flex-direction: row;
   flex-wrap: wrap;
@@ -85,6 +101,15 @@
  position: fixed;
  bottom: 2.5vh;
  z-index: 201;
+}
+
+.social-abs {
+ position: absolute;
+ bottom: 2.5vh;
+ left: 50%;
+ transform: translateX(-50%);
+ z-index: 201;
+
 }
 
 .social > * {

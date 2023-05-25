@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from "react";
+import myImage from "../../assets/images/me.jpeg";
 import "./About.css";
 
 export function About({ setProfileRef }: any) {
   const profileRef = useRef(null);
-  const myImage = require("../../assets/images/me.jpeg");
 
   useEffect(() => {
     profileRef.current && setProfileRef(profileRef.current);
