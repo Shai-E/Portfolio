@@ -6,14 +6,7 @@ import "./Profile.css";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Stage } from "@react-three/drei";
 import { portfolioData } from "../../fixtures/portfolioData";
-import {
-  CodepenIcon,
-  GithubIcon,
-  InstagramIcon,
-  LinkedinIcon,
-  TwitterIcon,
-} from "../../assets/icons/SVGIcons";
-import SemanticButton from "../reusable/SemanticButton";
+
 import { About } from "../About/About";
 import Social from "../Social/Social";
 export function Profile({
@@ -40,8 +33,6 @@ export function Profile({
     require("../../assets/docker.png"),
     require("../../assets/ts.png"),
   ];
-
-  console.log(toggleSocial);
 
   const socialProps = {
     customStyle: "social" + (toggleSocial ? " hide" : ""),
@@ -75,7 +66,7 @@ export function Profile({
               <div
                 className={"summary-line"}
                 data-aos="fade-up"
-                data-aos-delay="400"
+                data-aos-delay="450"
               >
                 <span>I'm</span>
                 <h1 className="name" onClick={() => setIsAbout(true)}>
@@ -86,7 +77,7 @@ export function Profile({
               <div
                 className={"summary-line wrap"}
                 data-aos="fade-up"
-                data-aos-delay="600"
+                data-aos-delay="700"
               >
                 <span>and I'm a</span>
                 <h2 className="title">{portfolioData.position1}</h2>

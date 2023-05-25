@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import myImage from "../../assets/images/me.jpeg";
+import myImage from "../../assets/images/me.webp";
 import "./About.css";
 
 export function About({ setProfileRef }: any) {

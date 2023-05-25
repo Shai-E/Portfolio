@@ -13,16 +13,17 @@ function App() {
   const socialRef = useRef(null);
 
   const [isAbout, setIsAbout] = useState(false);
-  const isPageEnd =
-    document.body.scrollHeight - (window.scrollY + window.innerHeight);
-  const [toggleSocial, setToggleSocial] = useState(isPageEnd <= 5);
+  const [toggleSocial, setToggleSocial] = useState(false);
 
   useEffect(() => {
     if (timelineRef && profileRef) {
       // window.scrollTo(0, window.innerHeight);
 
       const listener = (ev: any) => {
-        if (isPageEnd <= 5) {
+        if (
+          document.body.scrollHeight - (window.scrollY + window.innerHeight) <=
+          5
+        ) {
           setToggleSocial(true);
         } else {
           setToggleSocial(false);
