@@ -11,30 +11,40 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 import Skill from "../skill/Skill";
 import OtherExperience from "./OtherExperience";
+import SemanticNavButton from "../reusable/SemanticNavButton";
+import SemanticButton from "../reusable/SemanticButton";
 
 interface TimelineProps {
   position?: string;
+  diploma?: string;
   aside?: any;
   children?: any;
   description?: string;
   organization?: string;
+  institution?: string;
   dates?: string;
   index: number;
+  gpa?: number;
   skills?: string[];
   skillIcons?: any[];
   isLast?: boolean;
+  projects?: { about: string; url: string }[];
 }
 
 export function TimelineStep({
   position,
+  diploma,
   description,
   aside,
   children,
   dates,
   organization,
+  institution,
   index,
   skills,
   skillIcons,
+  gpa,
+  projects,
   isLast,
 }: TimelineProps) {
   return (
@@ -51,9 +61,12 @@ export function TimelineStep({
             {aside}
           </div>
         )}
-        <h2>{position}</h2>
-        <h3>{organization}</h3>
-        <h6>{dates}</h6>
+        <h2>{position || diploma}</h2>
+        <h3>{organization || institution}</h3>
+        <h6>
+          {dates}
+          {gpa ? ` (GPA: ${gpa})` : ""}
+        </h6>
         {children}
         <p style={{ textAlign: "left" }}>{description}</p>
         {skills && (
@@ -63,6 +76,23 @@ export function TimelineStep({
             <ul style={{ textAlign: "left", fontSize: 14 }}>
               {skills.map((skill, index) => (
                 <li key={index}>{skill}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {projects && (
+          <div style={{ textAlign: "left" }}>
+            <br />
+            <span>Projects:</span>
+            <ul style={{ textAlign: "left", fontSize: 14 }}>
+              {projects?.map(({ about, url }, index) => (
+                <li key={index}>
+                  {
+                    <a href={url} target="_blank">
+                      {about}
+                    </a>
+                  }
+                </li>
               ))}
             </ul>
           </div>
@@ -190,6 +220,35 @@ export function Timeline({ setTimelineRef }: any) {
     },
   ];
 
+  const education = [
+    {
+      institution: "John Bryce, Tel Aviv",
+      diploma: "Full Stack Web Development Course",
+      dates: "2020-2021",
+      gpa: 100,
+      projects: [
+        {
+          about: "React, Node.js, Socket.io & MySQL",
+          url: "https://github.com/Shai-E/vacations",
+        },
+        {
+          about: "Angular & Node.js",
+          url: "https://github.com/Shai-E/Shopping",
+        },
+      ],
+      // aside: <Emulator />,
+      description: "",
+    },
+    {
+      institution: "Kibbutzim College",
+      dates: "2014-2017",
+      diploma: "B.Ed. (English)",
+      gpa: 94,
+      description:
+        "Completed the Ministry of Education's Regev Program for outstanding students.",
+    },
+  ];
+
   return (
     <div className="my-timeline" ref={timelineRef}>
       <VerticalTimeline lineColor="#a8b2d1">
@@ -211,7 +270,30 @@ export function Timeline({ setTimelineRef }: any) {
             otherOccupations={otherOccupations}
           />
         </div>
-        <div id="education"></div>
+        <div id="education">
+          {education.length > 0 && <Title text={"education"} />}
+          {education.length > 0 &&
+            education.map((props, index) => (
+              <TimelineStep
+                key={index}
+                {...props}
+                index={index}
+                isLast={index === experience.length - 1}
+              />
+            ))}
+        </div>
+        <div id="military" style={{ position: "relative", marginTop: 50 }}>
+          <Title text={"military service"} />
+          <div className="timeline-mid-container" data-aos="zoom-out-up">
+            <h2>Education and Youth Corps</h2>
+            <h6>2010 - 2013</h6>
+            <p style={{ textAlign: "left" }}>
+              Outstanding district youth counselor and exemplary
+              non-commissioned officer in charge of training program design.
+              Honorable discharge at rank of sergeant-major.
+            </p>
+          </div>
+        </div>
       </VerticalTimeline>
     </div>
   );

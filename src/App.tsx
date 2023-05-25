@@ -50,7 +50,7 @@ function App() {
           activeClass="navLinkActive"
           spy={true}
           smooth={true}
-          offset={0}
+          offset={-100}
           duration={500}
         >
           EXPERIENCE
@@ -62,7 +62,7 @@ function App() {
           activeClass="navLinkActive"
           spy={true}
           smooth={true}
-          offset={0}
+          offset={-100}
           duration={500}
         >
           EDUCATION
@@ -74,7 +74,7 @@ function App() {
           activeClass="navLinkActive"
           spy={true}
           smooth={true}
-          offset={0}
+          offset={-300}
           duration={500}
         >
           MILITARY SERVICE
