@@ -1,9 +1,7 @@
 import "./App.css";
 import { Timeline } from "./features/timeline/Timeline";
 import { Profile } from "./features/profile/Profile";
-import { useEffect, useRef, useState, createRef } from "react";
-import { portfolioData } from "./fixtures/portfolioData";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { useEffect, useRef, useState } from "react";
 import SemanticNavButton from "./features/reusable/SemanticNavButton";
 import Social from "./features/Social/Social";
 
@@ -13,7 +11,7 @@ function App() {
   const socialRef = useRef(null);
 
   const [isAbout, setIsAbout] = useState(false);
-  const [toggleSocial, setToggleSocial] = useState(false);
+  const [toggleSocial, setToggleSocial] = useState(isAbout);
 
   useEffect(() => {
     if (timelineRef && profileRef) {
@@ -22,7 +20,7 @@ function App() {
       const listener = (ev: any) => {
         if (
           document.body.scrollHeight - (window.scrollY + window.innerHeight) <=
-          5
+          50
         ) {
           setToggleSocial(true);
         } else {
@@ -50,10 +48,11 @@ function App() {
   }, [timelineRef, profileRef]);
 
   const socialProps = {
-    customStyle: "social social-abs",
+    className: "social social-abs",
     display: toggleSocial ? "none" : "flex",
     aos: "fade-right",
     toggleSocial: !toggleSocial,
+    moreInfo: true,
   };
 
   return (
@@ -103,6 +102,7 @@ function App() {
         |
         <SemanticNavButton
           route="contact"
+          offset={-300}
           title="CONTACT ME"
           onClick={() => {
             setToggleSocial(true);
@@ -112,6 +112,19 @@ function App() {
       <Timeline setTimelineRef={setTimelineRef} />
       <div id="contact" className="contact-container">
         <Social {...socialProps} ref={socialRef} />
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d431649.6307622771!2d35.18997879803279!3d32.304794306319984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d400493c075d5%3A0x2cd995be543c3f22!2z16DXqteg15nXlA!5e0!3m2!1siw!2sil!4v1685355776759!5m2!1siw!2sil"
+          width="100%"
+          height="100%"
+          style={{
+            border: 0,
+            zIndex: 0,
+            top: 0,
+            left: 0,
+            position: "absolute",
+            opacity: 0.5,
+          }}
+        ></iframe>
       </div>
     </div>
   );

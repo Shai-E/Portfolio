@@ -49,6 +49,8 @@ border: white solid 3px;
   border-radius: 50%;
   /* background-color: red; */
   margin: auto;
+  overflow: hidden;
+  position: relative;
 }
 
 @keyframes vibrate {

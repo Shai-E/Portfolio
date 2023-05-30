@@ -35,7 +35,7 @@ export function Profile({
   ];
 
   const socialProps = {
-    customStyle: "social" + (toggleSocial ? " hide" : ""),
+    className: "social" + (toggleSocial ? " hide" : ""),
     aos: "fade-down",
     toggleSocial,
   };

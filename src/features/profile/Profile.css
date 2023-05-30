@@ -84,8 +84,8 @@
   padding: 0;
 }
 
-.last-icon::after {
-  content: "";
+.last-icon {
+  /* content: ""; */
     display: block;
     width: 1px;
     height: 90px;
@@ -109,7 +109,7 @@
  left: 50%;
  transform: translateX(-50%);
  z-index: 201;
-
+  background-color: 'red';
 }
 
 .social > * {
